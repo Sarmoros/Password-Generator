@@ -30,7 +30,7 @@ function getRandomLowerCaseLetter() {
 var randomLowerCase = getRandomLowerCaseLetter();
 
 function getRandomSpecialCharacter() {
-  var specialCharacters = '!@#$%^&*()_+~`|}{[]\\:;?><,./-=';
+  var specialCharacters = '!@^&*()_/-=+~`|}{[]#$%\\:;?><,.';
   var randomIndex = Math.floor(Math.random() * specialCharacters.length);
   return specialCharacters[randomIndex];
 }
@@ -54,9 +54,6 @@ function generatePassword() {
   return password;
 }
  
-  
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
