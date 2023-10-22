@@ -1,22 +1,61 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function getRandomNumber(max) {
+
+var passwordLength = prompt ("How many characters do you want for your password?");
+var includeLowerCase = confirm ("Do you want to include lower case?")
+var includeUpperCase = confirm("Do you want to include upper case?");
+var randomNumbers = confirm("Do you want to include numbers?");
+var specialCharacters = confirm("Do you want to include special characters?");
+
+
+function getRandomNumber(min, max) {
   var randomNumber=Math.random() * (max+1);
   return Math.floor(randomNumber);
 }
+var numbers = getRandomNumber(1, 100);
 
-function getRandomElementFromArray(array) {
-  var randomPosition=getRandomNumber(array.length-1);
-  return array[randomPosition];
-} 
+function getRandomUpperCaseLetter() {
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var randomIndex = Math.floor(Math.random() * alphabet.length);
+  return alphabet[randomIndex];
+}
+var randomUpperCase = getRandomUpperCaseLetter();
+
+function getRandomLowerCaseLetter() {
+  var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  var randomIndex = Math.floor(Math.random() * alphabet.length);
+  return alphabet[randomIndex];
+}
+var randomLowerCase = getRandomLowerCaseLetter();
+
+function getRandomSpecialCharacter() {
+  var specialCharacters = '!@#$%^&*()_+~`|}{[]\\:;?><,./-=';
+  var randomIndex = Math.floor(Math.random() * specialCharacters.length);
+  return specialCharacters[randomIndex];
+}
+var randomSpecialCharacter = getRandomSpecialCharacter();
 
 function generatePassword() {
-  var password="Hello Password";
-  //
+  var password="";
+  if (includeUpperCase) {
+    password += randomUpperCase;
+  } 
+  if (randomNumbers) {
+    password += numbers;
+  }
+  if (includeLowerCase) {
+    password += randomLowerCase;
+  }
+  if (specialCharacters) {
+    password += randomSpecialCharacter;
+  }
 
   return password;
 }
+ 
+  
+
 
 // Write password to the #password input
 function writePassword() {
