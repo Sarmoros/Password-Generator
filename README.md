@@ -4,3 +4,4 @@ The site creates an easy quick access to a safe original password. With your opt
 
 ![Website](./assets/Screenshot.png "Screenshot of page")
 
+https://sarmoros.github.io/Password-Generator/
