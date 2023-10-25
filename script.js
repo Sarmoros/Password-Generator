@@ -8,7 +8,6 @@ var includeUpperCase = confirm("Do you want to include upper case?");
 var randomNumbers = confirm("Do you want to include numbers?");
 var specialCharacters = confirm("Do you want to include special characters?");
 
-
 function getRandomNumber(min, max) {
   var randomNumber=Math.random() * (max+1);
   return Math.floor(randomNumber);
@@ -38,19 +37,24 @@ var randomSpecialCharacter = getRandomSpecialCharacter();
 
 function generatePassword() {
   var password="";
-  if (includeUpperCase) {
-    password += randomUpperCase;
-  } 
-  if (randomNumbers) {
-    password += numbers;
-  }
-  if (includeLowerCase) {
-    password += randomLowerCase;
-  }
-  if (specialCharacters) {
-    password += randomSpecialCharacter;
+  var desiredLength = parseInt(passwordLength);
+
+  while (password.length < desiredLength) {
+    if (includeUpperCase) {
+      password += randomUpperCase;
+    } 
+    if (randomNumbers) {
+      password += numbers;
+    }
+    if (includeLowerCase) {
+      password += randomLowerCase;
+    }
+   if (specialCharacters) {
+      password += randomSpecialCharacter;
+    }
   }
 
+  password = password.slice(0, desiredLength);
   return password;
 }
  
